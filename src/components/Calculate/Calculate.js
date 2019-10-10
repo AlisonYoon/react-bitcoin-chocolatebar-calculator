@@ -9,10 +9,19 @@ class Calculate extends React.Component {
             rate : '',
             freddos : ''
         }
+
     }
 
-
     componentDidMount() {
+        this.intervalId = setInterval(() => this.fetchApi(), 1000);
+        this.fetchApi()
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
+
+    fetchApi() {
         fetch('https://api.coindesk.com/v1/bpi/currentprice/gbp.json')
             .then(data => {return data.json()})
             .then(data => {
