@@ -16,7 +16,14 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  background: #ffefd2;
+  margin: 0;
+  padding: 1rem 0;
 }
 li {
   list-style: none;
+}
+li a {
+  font-size: 1.5rem;
+  text-decoration: none;
 }

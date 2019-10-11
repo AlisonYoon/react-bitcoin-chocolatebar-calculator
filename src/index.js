@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Notfound from "./components/Notfound/Notfound";
 import Header from "./components/Header/Header";
 import Chocolate from "./components/Chocolate/Chocolate";
 import Milkshake from "./components/Milkshake";
+
 import * as serviceWorker from './serviceWorker';
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 
 class Routing extends React.Component {
     render() {
@@ -18,15 +20,18 @@ class Routing extends React.Component {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/chocolate">Chocolate</Link>
+                            <Link to="/chocolate">About</Link>
                         </li>
                         <li>
-                            <Link to="/milkshake">Milkshake</Link>
+                            <Link to="/milkshake">Contact Us</Link>
                         </li>
                     </ul>
-                    <Route exact path="/" component={Header} />
-                    <Route path="/chocolate" component={Chocolate} />
-                    <Route path="/milkshake" component={Milkshake} />
+                    <Switch>
+                        <Route exact path="/" component={Header} />
+                        <Route path="/chocolate" component={Chocolate} />
+                        <Route path="/milkshake" component={Milkshake} />
+                        <Route component={ Notfound } />
+                    </Switch>
                 </div>
             </Router>
         )
